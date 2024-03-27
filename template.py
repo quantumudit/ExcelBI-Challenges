@@ -53,13 +53,19 @@ for file_path in other_files_names:
     file_path = os.path.normpath(file_path)
     file_dir, file_name = os.path.split(file_path)
     # Create file if not exists or if the file is empty
-    if (not os.path.exists(file_path)) or (os.path.getsize(file_path) == 0):
-        with open(file_path, "w", encoding="utf-8") as f:
-            logging.info("Creating empty files: %s", file_path)
-
-    # Ignore if the non-empty file already exists
+    if (
+        file_dir == "resources"
+        and len([content for content in os.listdir(file_dir)]) != 0
+    ):
+        pass
     else:
-        logging.info("%s already exists", file_name)
+        if (not os.path.exists(file_path)) or (os.path.getsize(file_path) == 0):
+            with open(file_path, "w", encoding="utf-8") as f:
+                logging.info("Creating empty files: %s", file_path)
+
+        # Ignore if the non-empty file already exists
+        else:
+            logging.info("%s already exists", file_name)
 
 for file_path in generated_file_names:
     file_path = os.path.normpath(file_path)
