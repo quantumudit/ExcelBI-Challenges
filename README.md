@@ -1,4 +1,4 @@
-# ExcelBI Challenges
+![img](./resources/project_cover_image.png)
 ---
 
 ## Solution Reference Table
