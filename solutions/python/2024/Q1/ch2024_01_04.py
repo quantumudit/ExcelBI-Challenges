@@ -1,9 +1,6 @@
 """
-This module provides a function to determine if a given year is a leap year in either
-the Gregorian or Revised Julian calendar, but not both.
-
-This script solves the challenge by filtering the leap years based on the
-given condition from 1901 to 9999.
+This script provides functions to analyze and transform text data. It solves the 
+challenge by leveraging the functions to transform the given text data.
 """
 
 import string
