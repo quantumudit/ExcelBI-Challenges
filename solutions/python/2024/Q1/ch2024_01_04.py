@@ -1,6 +1,6 @@
 """
-This script provides functions to analyze and transform text data. It solves the 
-challenge by leveraging the functions to transform the given text data.
+This script provides functions to analyze and transform text data. It solves
+the challenge by leveraging the functions to transform the given text data.
 """
 
 import string
