@@ -1,7 +1,7 @@
 let
     Source = Csv.Document(
         File.Contents(
-            "D:\ExcelBI-Challenges\data\2024\Q4\ch2024_04_01.csv"
+            "D:\Works\05-GitHub-Projects\05_Competitive_Coding\ExcelBI-Challenges\data\2024\Q4\ch2024_04_01.csv"
         ),
         [
             Delimiter = ",",
@@ -22,40 +22,20 @@ let
             {"Guest4", type text}
         }
     ),
-    #"Grouped Rows1" = Table.Group(
-        #"Changed Type",
-        {"Hall"},
-        {
-            {
-                "RowGroup",
-                each _,
-                type table [
-                    Hall = nullable text,
-                    Date = nullable date,
-                    Guest1 = nullable text,
-                    Guest2 = nullable text,
-                    Guest3 = nullable text,
-                    Guest4 = nullable text,
-                    Index = number
-                ]
-            }
-        }
-    ),
-    #"Added Custom" = Table.AddColumn(
-        #"Grouped Rows1",
-        "UnpivotedRowGroup",
-        each Table.RemoveColumns(Table.UnpivotOtherColumns([RowGroup], {"Hall"}, "Column1", "Column2"), "Hall")
-    ),
+    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Changed Type", {"Hall"}, "Column1", "Column2"),
+    #"Filtered Rows1" = Table.SelectRows(#"Unpivoted Other Columns", each [Column2] <> null and [Column2] <> ""),
+    #"Grouped Rows1" = Table.Group(#"Filtered Rows1", {"Hall"}, {{"RowGroup", each Table.RemoveColumns(_, "Hall")}}),
     #"Added Custom1" = Table.AddColumn(
-        #"Added Custom",
+        #"Grouped Rows1",
         "TransformedTables",
-        each Table.InsertRows([UnpivotedRowGroup], 0, {[Column1 = "Hall", Column2 = [Hall]]})
+        each Table.InsertRows([RowGroup], 0, {[Column1 = "Hall", Column2 = [Hall]]})
     ),
     #"Removed Other Columns1" = Table.SelectColumns(#"Added Custom1", {"TransformedTables"}),
     #"Expanded TransformedTables" = Table.ExpandTableColumn(
         #"Removed Other Columns1", "TransformedTables", {"Column1", "Column2"}, {"Column1", "Column2"}
     ),
-    #"Filtered Rows" = Table.SelectRows(#"Expanded TransformedTables", each [Column2] <> null and [Column2] <> ""),
-    #"Changed Type1" = Table.TransformColumnTypes(#"Filtered Rows", {{"Column1", type text}, {"Column2", type text}})
+    #"Changed Type1" = Table.TransformColumnTypes(
+        #"Expanded TransformedTables", {{"Column1", type text}, {"Column2", type text}}
+    )
 in
     #"Changed Type1"
