@@ -1,8 +1,3 @@
-![img](./resources/project_cover_image.png)
----
-
-## Solution Reference Table
-
 | Challenge ID | Challenge | Data | Solution Script - PowerQuery | Solution Script - Python |
 |--------------|-----------|------|-----------------------------|--------------------------|
 | 2022_03_01 | [5th Alphabet](2022/Q3/2022_03_01_challenge.png) | [Data](2022/Q3/2022_03_01_data.csv) | [PowerQuery Solution](2022/Q3/2022_03_01_solution.pq) | [Python Solution](2022/Q3/2022_03_01_solution.py) |
