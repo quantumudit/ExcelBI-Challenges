@@ -17,3 +17,4 @@
 | 2024_04_01 | [Challenge](2024/Q4/2024_04_01_challenge.jpg) | [Data](2024/Q4/2024_04_01_data.csv) | [PowerQuery Solution](2024/Q4/2024_04_01_solution.pq) | NA |
 | 2024_04_02 | [Challenge](2024/Q4/2024_04_02_challenge.jpg) | [Data](2024/Q4/2024_04_02_data.csv) | [PowerQuery Solution](2024/Q4/2024_04_02_solution.pq) | NA |
 | 2024_04_03 | [Excel_Challenge_606 - Merge Rows](2024/Q4/2024_04_03_challenge.jpg) | [Data](2024/Q4/2024_04_03_data.csv) | [PowerQuery Solution](2024/Q4/2024_04_03_solution.pq) | NA |
+| 2024_04_04 | [Excel_Challenge_607 - Sort Odd Numbers First](2024/Q4/2024_04_04_challenge.jpg) | [Data](2024/Q4/2024_04_04_data.csv) | [PowerQuery Solution](2024/Q4/2024_04_04_solution.pq) | [Python Solution](2024/Q4/2024_04_04_solution.py) |
