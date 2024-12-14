@@ -24,3 +24,4 @@
 | 2024_04_03 | [Excel_Challenge_606 - Merge Rows](2024/Q4/2024_04_03_challenge.jpg) | [Data](2024/Q4/2024_04_03_data.csv) | [PowerQuery Solution](2024/Q4/2024_04_03_solution.pq) | NA |
 | 2024_04_04 | [Excel_Challenge_607 - Sort Odd Numbers First](2024/Q4/2024_04_04_challenge.jpg) | [Data](2024/Q4/2024_04_04_data.csv) | [PowerQuery Solution](2024/Q4/2024_04_04_solution.pq) | [Python Solution](2024/Q4/2024_04_04_solution.py) |
 | 2024_04_05 | [Excel_Challenge_608 - Extract Zip and Country](2024/Q4/2024_04_05_challenge.jpg) | [Data](2024/Q4/2024_04_05_data.csv) | NA | [Python Solution](2024/Q4/2024_04_05_solution.py) |
+| 2024_04_06 | [PQ_Challenge_243](2024/Q4/2024_04_06_challenge.jpg) | [Data](2024/Q4/2024_04_06_data.csv) | [PowerQuery Solution](2024/Q4/2024_04_06_solution.pq) | NA |
