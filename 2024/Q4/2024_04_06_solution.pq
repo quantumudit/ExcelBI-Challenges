@@ -5,22 +5,19 @@ let
             Table.SelectColumns(Table.Profile(tbl), {"Column", "Count", "NullCount"}), each [Count] <> [NullCount]
         )[Column],
     // Main data transformation steps
-    source = Table.FromRows(
-        Json.Document(
-            Binary.Decompress(
-                Binary.FromText(
-                    "Pcy5DYAwEATAVlYbb8LTAGAgAvOEJ/ffBoctXTjax4wdxUmYhYVFxt7tSBVDCxv+ZhLWitGRhUu4Y/YIbzQ3YY+PQziFHPZN+QA=",
-                    BinaryEncoding.Base64
-                ),
-                Compression.Deflate
-            )
+    source = Csv.Document(
+        File.Contents(
+            "D:\Works\ExcelBI-Challenges\2024\Q4\2024_04_06_data.csv"
         ),
-        let
-            _t = ((type nullable text) meta [Serialized.Text = true])
-        in
-            type table [#"Emp ID" = _t, Group = _t]
+        [
+            Delimiter = ",",
+            Columns = 2,
+            Encoding = 1252,
+            QuoteStyle = QuoteStyle.None
+        ]
     ),
-    detectDatatype = Table.TransformColumnTypes(source, {{"Emp ID", Int64.Type}, {"Group", type text}}),
+    promotedHeaders = Table.PromoteHeaders(source, [PromoteAllScalars = true]),
+    detectDatatype = Table.TransformColumnTypes(promotedHeaders, {{"Emp ID", Int64.Type}, {"Group", type text}}),
     // Group rows based on Employee ID
     groupedRows = Table.Group(
         detectDatatype, {"Emp ID"}, {
